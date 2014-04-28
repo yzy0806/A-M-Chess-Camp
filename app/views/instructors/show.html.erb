@@ -1,100 +1,27 @@
 <div id ="pic1">
   <div class="row">
-   <div class ="small-7 columns">
+   <div class ="small-8 colums">
     <h1>Instructor Details</h1>
     </div>
   </div>
 </div>
-  <% flash.each do |name, msg| %>
-    <div class="alert-box <%= :notice ? "success" : "warning" %> radius">
-      <a href="#" class="close">&times;</a>
-      <%= msg %>
-    </div>
-  <% end %>
+<%= render :partial => "partials/flash" %>
 </br>
 <div class="row">
-<div class ="small-6 columns">
-<p>
-  <strong>Name:</strong>
-  <%= @instructor.proper_name %>
-</p>
+  <div class="small-7 columns">
+    <!-- MAIN CONTENT GOES HERE -->
+    <%= render :partial => "instructor_details" %>
+  </div>
 
-<p>
-  <strong>Bio:</strong>
-  <%= @instructor.bio %>
-</p>
+  <div class="small-1 columns">
+    &nbsp;
+  </div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @instructor.email %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= number_to_phone(@instructor.phone) %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @instructor.active ? "Active" : "Inactive" %>
-    
-</p>
-
-<p>
-  <strong>Past Camps:</strong>
-  <% unless @past_camps.empty? %>
-    <table>
-      <thead>
-        <tr>
-          <th>Camp Name</th>
-          <th>Start Date</th>
-        </tr>
-      </thead>
-      <tbody>
-        <%for camp in @past_camps %>
-        <tr>
-          <td><%= link_to camp.name,camp_path(camp)%></td>
-          <td><%=camp.start_date%></td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
-    <% end %>
-</p>
-
-<p>
-  <strong>Upcoming Camps:</strong>
-  <% unless @upcoming_camps.empty? %>
-    <table>
-      <thead>
-        <tr>
-          <th>Camp Name</th>
-          <th>Start Date</th>
-        </tr>
-      </thead>
-      <tbody>
-        <%for camp in @upcoming_camps %>
-        <tr>
-          <td><%=link_to camp.name,camp_path(camp)%></td>
-          <td><%=camp.start_date%></td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
-    <% end %>
-</p>
-
-</div>
-</div>
-
-<div class="row">
-      <div class="small-6 columns">
-        <%= link_to 'Back', instructors_path,class:"button"%>
-      </div>
-      <div id="right_button" >
-        <%= link_to 'Edit', edit_instructor_path(@instructor),class:"button" %> 
-        <%= link_to 'Destroy', @instructor, method: :delete, data: { confirm: 'Are you sure?' },class:"alert button"%>
-      </div>
+  <div class="small-4 columns">
+    <!-- SIDEBAR CONTENT GOES HERE -->
+    <%= render partial: 'instructor_camps' %>
   </div>
 </div>
-
+<div class="row">
+<%= render partial: "partials/object_options", locals: {model_name: "instructor", object: @instructor}  %>
+</div>

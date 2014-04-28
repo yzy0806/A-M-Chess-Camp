@@ -1,6 +1,6 @@
 <div id ="pic1">
   <div class="row">
-   <div class ="small-7 columns">
+   <div class ="small-8 colums">
     <h1>Curriculum Details</h1>
     </div>
   </div>
@@ -13,53 +13,20 @@
   <% end %>
 </br>
 <div class="row">
-<div class ="small-6 columns">
-<p>
-  <strong>Name:</strong>
-  <%= @curriculum.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @curriculum.description %>
-</p>
-
-<p>
-  <strong>Ratings:</strong>
-  <%= @curriculum.min_rating!=0 ? "#{@curriculum.min_rating} - #{@curriculum.max_rating}" : "Unrated - #{@curriculum.max_rating}" %>
-</p>
-<div >
-  <strong>Past Used:</strong>
-  <ul>
-    <%@times_used_past.each do |a|%>
-        <li><%=link_to a.start_date.strftime('%B %-d, %Y'), camp_path(a)%></li>
-    <% end %>
-  </ul>
-</div>
-
-<div >
-  <strong>Upcoming Use:</strong>
-  <ul>
-    <%@times_used_upcoming.each do |a|%>
-        <li><%=link_to a.start_date.strftime('%B %-d, %Y'), camp_path(a)%></li>
-    <% end %>
-  </ul>
-</div>
-
-<p>
-  <strong>Status:</strong>
-    <%= @curriculum.active ? "Active" : "Inactive" %>
-</p>
-</div>
-</div>
-
-<div class="row">
-      <div class="small-6 columns">
-        <%= link_to 'Back', curriculums_path,class:"button"%>
-      </div>
-      <div id="right_button" >
-        <%= link_to 'Edit', edit_curriculum_path(@curriculum),class:"button" %> 
-        <%= link_to 'Destroy', @curriculum, method: :delete, data: { confirm: 'Are you sure?' },class:"alert button"%>
-      </div>
+  <div class="small-7 columns">
+    <!-- MAIN CONTENT GOES HERE -->
+    <%= render :partial => "curriculum_details" %>
   </div>
+
+  <div class="small-1 columns">
+    &nbsp;
+  </div>
+
+  <div class="small-4 columns">
+    <!-- SIDEBAR CONTENT GOES HERE -->
+    <%= render partial: 'camps_using' %>
+  </div>
+</div>
+<div class="row">
+<%= render partial: "partials/object_options", locals: {model_name: "curriculum", object: @curriculum}  %>
 </div>

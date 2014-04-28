@@ -1,19 +1,20 @@
-<h3>Instructor Details</h3><br />
+<p>
 <strong>Name:&nbsp;&nbsp;</strong> 
-  <%= @instructor.proper_name %><br /><br />
-
+  <%= @instructor.proper_name %>
+</p>
+<p>
 <strong>Phone:&nbsp;&nbsp;</strong> 
-  <%= number_to_phone(@instructor.phone) %><br /><br />
-
+  <%= number_to_phone(@instructor.phone) %>
+</p>
+<p>
 <strong>Email:&nbsp;&nbsp;</strong> 
-  <%= mail_to @instructor.email, @instructor.email, encode: "javascript" %><br /><br />
-
+  <%= mail_to @instructor.email, @instructor.email, encode: "javascript" %>
+</p>
+<p>
 <strong>Active?&nbsp;&nbsp;</strong>
-  <%= @instructor.active ? "Yes" : "No" %><br /><br />
-
+  <%= @instructor.active ? "Yes" : "No" %>
+</p>
+<p>
 <strong>Biography</strong><br />
-  <%= @instructor.bio.nil? ? "N/A" : @instructor.bio %><br /><br />
-
-
-<%= link_to "Edit this instructor", edit_instructor_path(@instructor), class: "button tiny radius" %>&nbsp;&nbsp;
-<%= link_to 'Destroy instructor', instructor_path(@instructor), data: { confirm: 'Are you sure you want to permanently remove this instructor from the system?' }, method: :delete, class: "button tiny radius alert" %>
+  <%= @instructor.bio.nil? ? "N/A" : @instructor.bio %>
+  </p>

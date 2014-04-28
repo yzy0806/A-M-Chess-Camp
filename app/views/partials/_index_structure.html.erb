@@ -1,0 +1,31 @@
+<div id ="pic1">
+  <div class="row">
+   <div class ="small-6 colums">
+    <h1> <%= model_name.capitalize %></h1>
+    </div>
+  </div>
+</div>
+ <%= render :partial => "partials/flash" %>
+</br>
+<div class="row">
+  <div class="small-8 columns">
+    <!-- primary partial gets displayed here in main div -->
+    <%= render partial: "#{primary}" %>
+    <!-- sometimes we want another partial below -->
+    <% unless secondary.nil? %>
+      <p>&nbsp;</p>
+      <%= render partial: "#{secondary}" %>
+    <% end %>
+
+    <%= link_to(eval("new_#{model_name}_path"), class: "button radius") do %>
+  <i class="fa fa-plus"></i>
+  &nbsp;Add a New <%= model_name.capitalize %>
+<% end %>
+    
+  </div>
+  <div class="small-4 columns">
+    <!-- render the sidebar, if it exists -->
+    <%= render partial: "#{sidebar}" unless sidebar.blank? %>
+  </div>
+</div>
+
