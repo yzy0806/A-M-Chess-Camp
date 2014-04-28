@@ -23,4 +23,9 @@ class User < ActiveRecord::Base
     role.downcase.to_sym == authorized_role
   end
 
+    # login by email address
+  def self.authenticate(email, password)
+    find_by_email(email).try(:authenticate, password)
+  end
+
 end

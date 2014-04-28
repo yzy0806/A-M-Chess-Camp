@@ -1,17 +1,70 @@
-<div class="row">
-  <div class="small-7 columns">
-    <!-- MAIN CONTENT GOES HERE -->
-    <%= render :partial => "active_instructors" %>
-    <br />
-    <%= link_to "Add a new instructor", new_instructor_path, class: "button tiny radius" %>
-  </div>
-
-  <div class="small-1 columns">
-    &nbsp;
-  </div>
-
-  <div class="small-4 columns">
-    <!-- SIDEBAR CONTENT GOES HERE -->
-    <%= render partial: 'inactive_instructors' %>
+<div id ="pic1">
+  <div class="row">
+   <div class ="small-6 colums">
+    <h1>Instructors</h1>
+    </div>
   </div>
 </div>
+  <% flash.each do |name, msg| %>
+    <div class="alert-box <%= :notice ? "success" : "warning" %> radius">
+      <a href="#" class="close">&times;</a>
+      <%= msg %>
+    </div>
+  <% end %>
+</br>
+
+<div class="row">
+  <div class="small-8 columns">
+    <h3>Active Instructors</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Camps</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @instructors.each do |instructor| %><!--sort!{ |a,b| a[:active] ? -1 : 1 }-->
+      <tr>
+        <td><%= link_to "#{instructor.name}", instructor_path(instructor)%></td>
+        <td><%= instructor.email %></td>
+        <td><%= number_to_phone(instructor.phone) %></td>
+        <td><%= instructor.camps.length%></td>
+        <td><%= link_to 'Edit', edit_instructor_path(instructor) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Instructor', new_instructor_path,class:"button"%>
+<span class="paginate">
+<%= will_paginate @instructors, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>
+</div>
+  <div class="small-4 columns">
+    <h3>Inactive Instructors</h3>
+    <table>
+      <thead>
+        <tr>
+        <th>Instructor Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%@inactive_instructors.each do |a|%>
+        <tr>
+          <td><%= link_to a.name,instructor_path(a) %></td>
+        </tr>
+        <%end%>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+
+

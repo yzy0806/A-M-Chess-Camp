@@ -16,7 +16,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+ gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -79,3 +79,9 @@ group :test do
   gem 'launchy'
   gem 'capybara'
 end
+
+gem 'font-awesome-sass-rails', '3.0.2.2'
+gem 'jquery-ui-rails', '4.1.1'
+gem 'cancancan', '1.7.0'
+gem 'time_date_helpers', '0.0.2'
+gem 'nested_form','0.3.2'
