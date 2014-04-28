@@ -15,31 +15,19 @@
   
   <body>
     <div class="contain-to-grid">
-    <nav class="top-bar" data-topbar>
-      <ul class="title-area">
-        <li class="name">
-          <h1 id="title"><%= link_to "A&M Chess Camp", home_path %></h1>
-        </li>
-      </ul>
-      <section class="top-bar-section">
-        <ul class="right">
-          <li class="active"><%=link_to "Camps", camps_path%></li>
-          <li class="active"><%=link_to "Instructors", instructors_path%></li>
-          <li class="active"><%=link_to "Curriculum", curriculums_path%></li>
-      </section>
-    </nav>
+    <%= render :partial => "partials/nav" %>
    </div>  
   <div class="contain-to-grid" id ="main_content">
       <!-- MAIN CONTENT GOES HERE -->
+       <%= render :partial => "partials/flash" %>
       <%= yield %>
-      <%= javascript_include_tag "application" %>
   </div>
 
     <div class="small-1 columns">
         &nbsp;
     </div>  
   </div>
-
+<%= javascript_include_tag "application" %>
   </body>
    
       <div class="row">
