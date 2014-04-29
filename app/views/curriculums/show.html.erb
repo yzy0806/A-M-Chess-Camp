@@ -5,12 +5,7 @@
     </div>
   </div>
 </div>
-  <% flash.each do |name, msg| %>
-    <div class="alert-box <%= :notice ? "success" : "warning" %> radius">
-      <a href="#" class="close">&times;</a>
-      <%= msg %>
-    </div>
-  <% end %>
+<%= render :partial => "partials/flash" %>
 </br>
 <div class="row">
   <div class="small-7 columns">

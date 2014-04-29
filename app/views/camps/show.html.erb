@@ -1,68 +1,28 @@
 <div id ="pic1">
   <div class="row">
-   <div class ="small-7 columns">
+   <div class ="small-8 colums">
     <h1>Camp Details</h1>
     </div>
   </div>
 </div>
-  <% flash.each do |name, msg| %>
-    <div class="alert-box <%= :notice ? "success" : "warning" %> radius">
-      <a href="#" class="close">&times;</a>
-      <%= msg %>
-    </div>
-  <% end %>
-</br>
+<%= render :partial => "partials/flash" %>
 <div class="row">
-<div class ="small-6 columns">
-<p>
-  <strong>Curriculum:</strong>
-  <%= link_to @camp.name, curriculum_path(@camp.curriculum) %>
-</p>
+  
+  </br>
+  <div class="small-7 columns">
+    <!-- MAIN CONTENT GOES HERE -->
+    <%= render :partial => "camp_details" %>
+  </div>
 
-<p>
-  <strong>Cost:</strong>
-  <%= "$#{@camp.cost}.00" %>
-</p>
+  <div class="small-1 columns">
+    &nbsp;
+  </div>
 
-<p>
-  <strong>Camp date:</strong>
-  <%= "#{@camp.start_date.strftime('%m/%d/%y')} - #{@camp.end_date.strftime('%m/%d/%y')}" %>
-</p>
-
-<p>
-  <strong>Time slot:</strong>
-<%= @camp.time_slot=="am" ? "Morning" : "Afternoon" %>
-</p>
-
-<p>
-  <strong>Max students:</strong>
-  <%= @camp.max_students %>
-</p>
-
-<div >
-  <strong>Camp Instructors</strong>
-  <ul>
-    <%@camp.instructors.each do |a|%>
-        <li><%=link_to a.name, instructor_path(a)%></li>
-    <% end %>
-    </ul>
+  <div class="small-4 columns">
+    <!-- SIDEBAR CONTENT GOES HERE -->
+    <%= render partial: 'camp_instructors' %>
+  </div>
 </div>
-
-
-<p>
-  <strong>Status:</strong>
-  <%= @camp.active ? "Active" : "Inactive" %>
-</p>
-
-</div>
-</div>
-
 <div class="row">
-      <div class="small-6 columns">
-        <%= link_to 'Back', camps_path,class:"button"%>
-      </div>
-      <div id="right_button" >
-        <%= link_to 'Edit', edit_camp_path(@camp),class:"button" %> 
-        <%= link_to 'Destroy', @camp, method: :delete, data: { confirm: 'Are you sure?' },class:"alert button"%>
-      </div>
+<%= render partial: "partials/object_options", locals: {model_name: "camp", object: @camp}  %>
 </div>

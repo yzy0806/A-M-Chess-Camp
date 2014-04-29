@@ -1,60 +1,28 @@
- <%= simple_form_for @camp, html: { class: 'form-horizontal' } do |f| %>
-  <% if @camp.errors.any? %>
-    <div id="error_explanation">
-      <h3><%= pluralize(@camp.errors.count, "error") %> prohibited this camp from being saved:</h3>
-      <ul>
-      <% @camp.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-    <fieldset>
-      <legend></legend>
-       <div class="row">
-        <div class="small-6 columns">
-          <%= f.association :curriculum, collection: Curriculum.active.alphabetical, as: :select %>
-        </div>
-          <div class="small-6 columns">
-          <%= f.input :cost, as: :integer %>
-        </div>
-        </div>
-        <div class="row">
-         <div class="small-6 columns">
-           <%= f.label:"Time Slot"%>
-           <%= f.select :time_slot, [['Morning','am'],['Afternoon','pm']], as: :select%>
-         </div>
-         <div class="small-6 columns">
-          <%= f.input :max_students,as: :integer %>
-         </div>
-        </div>
-
-        
-        <div class="row">
-          <%if(controller.action_name == 'edit') %>
-          <div class="small-6 columns">
-            <%=f.association :instructors, collection: Instructor.active.alphabetical ,as: :check_boxes%>
-          </div>
-         
-         <%end %>
-        
-        <div class="small-6 columns">
-        <%= f.input :start_date, as: :date,order: [:month, :day, :year]%>
-        <%= f.input :end_date, as: :date,order: [:month, :day, :year]%>
-        
-        <%= f.input :active, as: :radio_buttons%>
-        </div>
-      </div>
-    </fieldset>
+<%= simple_form_for(@camp, html: { class: 'form-horizontal' }) do |f| %>
+       
     <div class="row">
-      <div class="small-3 columns">
-        <%= link_to 'Back', camps_path,class:"button"%>
+      <div class="small-6 columns">
+        <h3><%= controller.action_name.capitalize %> Camp</h3>
+        <%= f.input :curriculum_id, collection: Curriculum.active.alphabetical, prompt: "Select curriculum..." %>
+        <%= f.input :cost %>
+        <%= f.input :max_students %>
+        <%= f.input :start_date, as: :date, order: [:month, :day, :year], include_blank: true, start_year: Date.today.year - 1, end_year: Date.today.year + 1 %>
+        <%= f.input :end_date, as: :date, order: [:month, :day, :year], include_blank: true, start_year: Date.today.year - 1, end_year: Date.today.year + 1 %>
+        <%= f.input :time_slot, collection: [['Morning','am'],['Afternoon','pm']], prompt: "Select time..." %>
+        <%= f.input :active %>
       </div>
-      <div class="form-actions" id="right_button" >
-        <div class="small-3 columns">
-        <%= f.submit nil, class: 'button'%>
+      <div class="small-1 columns">&nbsp;</div>
+      <div class="small-5 columns">
+        <% if controller.action_name=="edit" && @camp.active %>
+        <h3>Camp Instructor(s)</h3>
+        <%= f.input :instructor_ids, label: "", collection: Instructor.active.alphabetical, as: :check_boxes %>
         <% end %>
       </div>
-     </div>
     </div>
+
+    <div class="form-actions">
+      <%= f.submit nil, class: 'button radius' %>
+      <%= link_to 'Back to list of camps', camps_path, :class => 'button secondary radius' %>
+    </div>
+
+<% end %>

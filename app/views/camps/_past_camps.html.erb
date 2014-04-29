@@ -1,0 +1,28 @@
+<h3>Past Camps</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Start date</th>
+      <th>Time slot</th>
+      <th>Max students</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @past_camps.each do |camp| %>
+      <tr>
+        <td><%= link_to camp.name,camp_path(camp) %></td>
+        <td><%= camp.start_date.strftime('%m/%d/%y') %></td>
+        <td><%= camp.time_slot=="am" ? "Morning" : "Afternoon" %></td>
+        <td><%= camp.max_students %></td>
+        <td><%= link_to 'Edit', edit_camp_path(camp) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<!-- Add the pagination using will_paginate gem -->
+<span class="paginate">
+<%= will_paginate @past_camps, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>
