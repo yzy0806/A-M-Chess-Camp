@@ -5,17 +5,8 @@
    	</div>
   </div>
 </div>
+<%=render 'partials/cannot_save', local: {object: @camp} %>
 </br>
-<% if @camp.errors.any? %>
-    <div id="error_explanation">
-      <h3><%= pluralize(@camp.errors.count, "error") %> prohibited this camp from being saved:</h3>
-      <ul>
-      <% @camp.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
 <div class="row">
 <div class ="small-12 colums">
