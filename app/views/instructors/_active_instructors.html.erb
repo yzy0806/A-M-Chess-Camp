@@ -13,8 +13,8 @@
 <% @active_instructors.each do |instructor| %>
   <tr>
     <td><%= link_to instructor.name, instructor_path(instructor) %></td>
-    <td align="center"><%= number_to_phone instructor.phone %></td>
-    <td align="center"><%= instructor.camps.size %></td>
+    <td><%= number_to_phone instructor.phone %></td>
+    <td><%= instructor.camps.size %></td>
     <td><%= link_to 'Edit', edit_instructor_path(instructor)%></td>
   </tr>
 <% end %>

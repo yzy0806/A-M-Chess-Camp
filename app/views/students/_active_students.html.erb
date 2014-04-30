@@ -1,0 +1,26 @@
+<h3>Active Students</h3>
+
+<table >
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Rating</th>
+    <th></th>
+  </tr>
+  </thead>
+<tbody>
+<% @active_students.each do |student| %>
+  <tr>
+    <td><%= link_to student.proper_name, student_path(student) %></td>
+    <td><%= student.age%></td>
+    <td><%= student.rating %></td>
+    <td><%= link_to 'Edit', edit_student_path(student)%></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+<!-- Add the pagination using will_paginate gem -->
+<span class="paginate">
+<%= will_paginate @active_students, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>

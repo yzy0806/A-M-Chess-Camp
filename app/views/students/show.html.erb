@@ -1,7 +1,7 @@
 <div id ="pic1">
   <div class="row">
    <div class ="small-8 colums">
-    <h1>Location Details</h1>
+    <h1>student Details</h1>
     </div>
   </div>
 </div>
@@ -10,7 +10,7 @@
 <div class="row">
   <div class="small-7 columns">
     <!-- MAIN CONTENT GOES HERE -->
-    <%= render :partial => "location_details" %>
+    <%= render :partial => "student_details" %>
   </div>
 
   <div class="small-1 columns">
@@ -19,9 +19,9 @@
 
   <div class="small-4 columns">
     <!-- SIDEBAR CONTENT GOES HERE -->
-    <%#= render partial: 'camps_using' %>
+    <%#= render partial: 'student_students' %>
   </div>
 </div>
 <div class="row">
-<%= render partial: "partials/object_options", locals: {model_name: "location", object: @location}  %>
+<%= render partial: "partials/object_options", locals: {model_name: "student", object: @student}  %>
 </div>

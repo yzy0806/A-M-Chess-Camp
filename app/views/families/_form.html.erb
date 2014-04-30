@@ -1,0 +1,25 @@
+<%= simple_form_for(@family, html: { class: 'form-horizontal' }) do |f| %>
+    <div class="row">
+    <div class="small-3 columns">
+    <%= f.input :family_name %>
+    </div>
+    <div class="small-3 columns end">
+    <%= f.input :parent_first_name %>
+    </div>
+    </div>
+    <div class="row">
+    <div class="small-4 columns">
+    <%= f.input :email %>
+    </div>
+    <div class="small-2 columns end">
+    <%= f.input :phone %>
+    </div>
+    </div>
+    <%= f.input :active %>
+
+    <div class="form-actions">
+      <%= f.submit nil, class: 'button radius' %>
+      <%= link_to 'Back to list of families', families_path, :class => 'button secondary radius' %>
+    </div>
+
+<% end %>

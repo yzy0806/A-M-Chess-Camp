@@ -1,0 +1,26 @@
+<h3>Active Families</h3>
+
+<table >
+  <thead>
+  <tr>
+    <th>Family Name</th>
+    <th>Parent Name</th>
+    <th>Phone</th>
+    <th></th>
+  </tr>
+  </thead>
+<tbody>
+<% @active_families.each do |family| %>
+  <tr>
+    <td><%= link_to family.family_name, family_path(family) %></td>
+    <td><%= family.parent_first_name%></td>
+    <td><%= number_to_phone family.phone %></td>
+    <td><%= link_to 'Edit', edit_family_path(family)%></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+<!-- Add the pagination using will_paginate gem -->
+<span class="paginate">
+<%= will_paginate @active_families, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>

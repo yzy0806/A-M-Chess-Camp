@@ -1,0 +1,31 @@
+<p>
+<strong>Name:&nbsp;&nbsp;</strong> 
+  <%= @location.name %>
+</p>
+
+<p>
+<strong>Address:&nbsp;&nbsp;</strong>
+  <%= @location.street_1 %>
+  <%= @location.street_2 %>
+  </br>
+  <%= @location.city%>,
+  <%= @location.state%>
+  <%=@location.zip %>
+</p>
+
+<p>
+<strong>Maximum Capacity:&nbsp;&nbsp;</strong> 
+  <%=@location.max_capacity %>
+</p>
+<p>
+<strong>Active?&nbsp;&nbsp;</strong>
+  <%= @location.active ? "Yes" : "No" %>
+</p>
+
+<p>
+	<strong>Map</strong>
+</br>
+	<%= image_tag @location.create_map_link %>
+</p>
+
+

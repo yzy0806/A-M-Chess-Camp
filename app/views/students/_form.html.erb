@@ -1,0 +1,34 @@
+<%= simple_form_for(@student, html: { class: 'form-horizontal' }) do |f| %>
+    <div class="row">
+    <div class="small-3 columns">
+    <%= f.input :first_name %>
+    </div>
+    <div class="small-3 columns end">
+    <%= f.input :last_name %>
+    </div>
+    </div>
+    <div class="row">
+    <div class="small-3 columns">
+    <%= f.input :family_id, collection: Family.active.alphabetical, prompt: "Select family..." %>
+    </div>
+    <div class="small-5 columns end">
+    <%= f.input :date_of_birth %>
+    </div>
+    </div>
+    <div class="row">
+    <div class="small-2 columns">
+    <%= f.input :rating %>
+    </div>
+    <div class="small-2 columns end">
+    </br>
+</br>
+    <%= f.input :active %>
+    </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit nil, class: 'button radius' %>
+      <%= link_to 'Back to list of students', students_path, :class => 'button secondary radius' %>
+    </div>
+
+<% end %>

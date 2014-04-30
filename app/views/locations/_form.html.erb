@@ -1,10 +1,44 @@
-<%= simple_form_for(@location) do |f| %>
-  <%= f.error_notification %>
+<%= simple_form_for(@location, html: { class: 'form-horizontal' }) do |f| %>
 
-  <div class="form-inputs">
-  </div>
+     <div class="row">
+     <div class="small-3 columns">
+    <%= f.input :name %>
+	</div>
+	<div class="small-2 columns end">
+    <%= f.input :max_capacity %>
+	</div>
+	</div>
+	<div class="row">
+    <div class="small-4 columns">
+    <%= f.input :street_1 %>
+    </div>
+    <div class="small-4 columns end">
+    <%= f.input :street_2 %>
+	</div>
+	</div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+	<div class="row">
+    <div class="small-3 columns">
+    <%= f.input :city %>
+	</div>
+	<div class="small-3 columns">
+    <%=  f.input :state, :collection => Location::STATES_LIST, :prompt => true %>
+	</div>
+	<div class="small-2 columns end">
+    <%= f.input :zip %>
+	</div>
+	</div>
+
+	<div class="row">
+    <div class="small-4 columns">
+    <%= f.input :active %>
+	</div>
+	</div>
+
+
+    <div class="form-actions">
+      <%= f.submit nil, class: 'button radius' %>
+      <%= link_to 'Back to list of location', locations_path, :class => 'button secondary radius' %>
+    </div>
+
 <% end %>
