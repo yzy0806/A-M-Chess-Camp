@@ -2,6 +2,9 @@
 <strong>Name:&nbsp;&nbsp;</strong> 
   <%= @instructor.proper_name %>
 </p>
+ <% unless @instructor.picture_url.nil? %>
+      <p><%= image_tag @instructor.picture_url %></p>
+      <% end %>
 <p>
 <strong>Phone:&nbsp;&nbsp;</strong> 
   <%= number_to_phone(@instructor.phone) %>

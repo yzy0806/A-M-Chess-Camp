@@ -85,3 +85,4 @@ gem 'jquery-ui-rails', '4.1.1'
 gem 'cancancan', '1.7.0'
 gem 'time_date_helpers', '0.0.2'
 gem 'nested_form','0.3.2'
+

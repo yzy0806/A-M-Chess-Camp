@@ -9,10 +9,10 @@
     </div>
     <div class="row">
     <div class="small-3 columns">
-    <%= f.input :family_id, collection: Family.active.alphabetical, prompt: "Select family..." %>
+    <%= f.input :family_id, collection: Family.active.alphabetical, prompt: "Select family...", label_method: :family_name %>
     </div>
-    <div class="small-5 columns end">
-    <%= f.input :date_of_birth %>
+    <div class="small-3 columns end">
+    <%= f.input :date_of_birth, as: :string, input_html: {:class => "avg datepicker"}  %>
     </div>
     </div>
     <div class="row">
