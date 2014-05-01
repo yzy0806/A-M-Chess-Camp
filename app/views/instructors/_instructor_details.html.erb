@@ -20,4 +20,16 @@
 <p>
 <strong>Biography</strong><br />
   <%= @instructor.bio.nil? ? "N/A" : @instructor.bio %>
-  </p>
+</p>
+
+<p>
+<strong>Role &nbsp;&nbsp;</strong>
+  <%= @instructor.user.nil? ? "instructor" : @instructor.user.role%>
+</p>
+
+</p>
+ <% unless @instructor.user.nil? %>
+  <strong>Username &nbsp;&nbsp;</strong>
+  <%= @instructor.user.username%>
+ <% end %>
+<p>

@@ -14,3 +14,22 @@
     <h5>No Instructors</h5>
   </div>
 <% end %>
+
+<h5>Registrations (<%=@regs.count%>)</h5>
+<table>
+  <thead>
+    <tr>
+      <th>Student Name</th>
+      <th>Rating</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @regs.each do |reg| %>
+      <tr>
+        <td><%= reg.student.name %></td>
+        <td><%= reg.student.rating==0 ? "Unrated" : reg.student.rating%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

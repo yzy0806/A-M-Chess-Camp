@@ -9,11 +9,9 @@
         <div class="small-5 columns">
             <legend>Add some users to this instructor</legend>
             <div id="instructor_users">
-                
                 <%= instructor_form.simple_fields_for :user do |user_form| %>
                     <%= render "user_fields", :f => user_form %>
                 <% end %> <!-- end of one users form -->
-                
             </div> <!-- end of instructor_users div -->
         </div>
     </div>

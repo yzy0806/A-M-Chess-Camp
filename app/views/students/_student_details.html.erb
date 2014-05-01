@@ -1,21 +1,21 @@
 <p>
-<strong>Student Name:&nbsp;&nbsp;</strong> 
+<strong>Student Name:&nbsp;</strong> 
   <%= @student.first_name%>
   <%= link_to @student.last_name, family_path(@student.family) %>
 </p>
 <p>
-<strong>Birthday:</strong> 
+<strong>Birthday:&nbsp;</strong> 
   <%= "#{@student.date_of_birth.strftime('%m/%d/%Y')}" %>
 </p>
 <p>
-<strong>Age:</strong> 
+<strong>Age:&nbsp;</strong> 
   <%= @student.age %>
 </p>
 <p>
-<strong>Rating:&nbsp;&nbsp;</strong> 
+<strong>Rating:&nbsp;</strong> 
   <%= @student.rating==0 ? "Unrated" : @student.rating%>
 </p>
 <p>
-<strong>Active?&nbsp;&nbsp;</strong>
+<strong>Active?&nbsp;</strong>
   <%= @student.active ? "Yes" : "No" %>
 </p>

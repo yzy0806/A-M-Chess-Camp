@@ -1,0 +1,16 @@
+<% unless @regs.empty? %>
+  <!-- <h3>&nbsp;</h3> -->
+  <div class="panel clearfix">
+    <h5>Registrations for this student</h5>
+    <ul class="side-nav">
+      <% @regs.each do |registration| %>
+        <li><%= link_to registration.camp.name, camp_path(registration.camp)%><%="#{registration.camp.start_date.strftime('%m/%d/%y')}"%></li>
+      <% end %>
+    </ul>
+  </div>
+
+<% else %>
+  <div class="panel clearfix">
+    <h5>No Students</h5>
+  </div>
+<% end %>
