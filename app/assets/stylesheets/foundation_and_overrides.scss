@@ -1197,7 +1197,6 @@ $topbar-divider-border-bottom: solid 10px  scale-color(#000, $lightness: 100%);
 @import 'foundation';
 select.date { width: 90px; }
 select.text { height: 300px;}
-$h3: red;
 
 #pic { 
 	background: white url(Background2.jpg);
@@ -1207,9 +1206,9 @@ $h3: red;
 	width:auto;
 	}
 
-#welcome{
+.welcome{
 	color: #d1eaf1;//#8edec8;//#EEE;
-	font-size: 4rem;
+	//font-size: 4rem;
 	padding-top:30px;	
 }
 
@@ -1222,6 +1221,11 @@ h1 {
 	font-family: 'Lato', sans-serif;
 	color: #d1eaf1;
 	font-size:4rem
+}
+
+h4{
+	font-family: 'Lato', sans-serif;
+	color: #d1eaf1;
 }
 
 #pic1{

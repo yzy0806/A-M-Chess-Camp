@@ -5,8 +5,8 @@ class ApplicationController < ActionController::Base
 
   # just show a flash message instead of full CanCan exception
   rescue_from CanCan::AccessDenied do |exception|
-    flash[:error] = "You are not authorized to take this action. You will be directed to the home page in a second"
     redirect_to home_path
+    flash[:error] = "You are not authorized to take this action"
   end
   
   # handle missing pages the BSG way...

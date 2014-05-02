@@ -1,18 +1,40 @@
 
 <div id ="pic">
+  <%= render :partial => "partials/flash" %>
   <div class="row">
-   <div class ="small-6 colums">
-    <h1 id="welcome">Learn Chess </br> Better, Together</h1>
+   <div class ="small-7 columns">
+    <h1 class="welcome">Learn Chess </br>Better, Together</h1>
+    <p id ="ad">
+    Interested in Chess? Want to learn something in the summer?</br>
+  Come to A&M Chess Camp. You will certainly get a nice </br>
+  experience at A&M with friends, chess and much more.
+  </p>
    </div>
+   <div class ="small-1 column">
+    &nbsp;
+   </div>
+      <div class ="small-4 columns">
+    <div class="row">
+      <div class ="small-1 column">
+    &nbsp;
+   </div>
+  <div class="small-11 columns">
+    <h4 class="welcome">Log In</h4>
+    <%= form_tag sessions_path do %>
+        <%= text_field_tag :username, params[:username] ,:placeholder=>"Username"%>
+        <%= password_field_tag :password%>
+    <%= submit_tag "Log In" ,class: 'button radius'%>
+    <% end %>
+  </div>
+   </div>
+ </div>
 	</br>
-   <div class ="small-6 colums">
-   	<p id ="ad">
-   	Interested in Chess? Want to learn something in the summer?</br>
- 	Come to A&M Chess Camp. You will definitely have good experience at
- 	A&M with friends, chess and much more.
-	</p>
+  <div class="row">
+   <div class ="small-7 columns">
+   	
    </div>
   </div>
+</div>
 </div>
     
 

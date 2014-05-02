@@ -62,7 +62,7 @@ Feature: Authorization
     And I click on the link "Gazica, Josh" 
     Then I should see "Student Details"
     And I should see "Josh Gazica" 
-
+    Then show me the page
 
   Scenario: Patrick is not able to see students not in his camps
     When I go to Gracie's page
