@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @registration.id %>
+</p>
+
+<p>
+  <strong>Camp:</strong>
+  <%= @registration.camp_id %>
+</p>
+
+<p>
+  <strong>Instructor:</strong>
+  <%= @registration.student_id %>
+</p>
+
+<%= link_to 'Edit', edit_registration_path(@registration) %> |
+<%= link_to 'Back', registrations_path %>

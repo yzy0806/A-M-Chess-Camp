@@ -42,13 +42,6 @@
   </tbody>
 </table>
 
-<div id="dialog" title="Edit Students">
-      <%= simple_form_for(@camp, html: { class: 'form-horizontal' }) do |f| %>
-        <%= f.input :student_ids, label: "", collection: Student.active.alphabetical,  as: :check_boxes %>
-        <%= f.input :payment_status, label: "", collection: %w[deposit full]%>
-        <%= f.submit nil, class: 'button radius' %>
-      <% end %> 
-  </div>
-<button id="opener">Edit Students</button>
+
 
 
