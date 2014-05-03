@@ -25,10 +25,11 @@ class Ability
         u.id == user.id
       end
 
-      can :read, Student do |s|
+      can :show, Student do |stu|
         my_students = user.instructor.camps.map{|c| c.students.map(&:id)}.flatten
-        my_students.include? s.id
+        my_students.include? stu.id
       end
+
     else
       # guests can only read domains covered (plus home pages)
       can :read, Camp

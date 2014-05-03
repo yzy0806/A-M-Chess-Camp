@@ -1,19 +1,21 @@
 <% unless @instructors.empty? %>
   <!-- <h3>&nbsp;</h3> -->
-  <div class="panel clearfix">
+  <div class="panel-sid">
     <h5>Camp Instructors</h5>
-    <ul class="side-nav">
+    <ul>
       <% @instructors.each do |instructor| %>
         <li><%= link_to instructor.name, instructor_path(instructor) %></li>
       <% end %>
     </ul>
-  </div>
 
 <% else %>
   <div class="panel clearfix">
     <h5>No Instructors</h5>
   </div>
 <% end %>
+</div>
+
+</br>
 
 <h5>Registrations (<%=@regs.count%>)</h5>
 <table>
@@ -21,15 +23,32 @@
     <tr>
       <th>Student Name</th>
       <th>Rating</th>
+      <th>Age</th>
     </tr>
   </thead>
 
   <tbody>
     <% @regs.each do |reg| %>
       <tr>
+        <% if logged_in? %>
+        <td><%= link_to reg.student.name, student_path(reg.student) %></td>
+        <% else %>
         <td><%= reg.student.name %></td>
+        <%end%>
         <td><%= reg.student.rating==0 ? "Unrated" : reg.student.rating%></td>
+        <td><%= reg.student.age%></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<div id="dialog" title="Edit Students">
+      <%= simple_form_for(@camp, html: { class: 'form-horizontal' }) do |f| %>
+        <%= f.input :student_ids, label: "", collection: Student.active.alphabetical,  as: :check_boxes %>
+        <%= f.input :payment_status, label: "", collection: %w[deposit full]%>
+        <%= f.submit nil, class: 'button radius' %>
+      <% end %> 
+  </div>
+<button id="opener">Edit Students</button>
+
+

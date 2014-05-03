@@ -1208,7 +1208,6 @@ select.text { height: 300px;}
 
 .welcome{
 	color: #d1eaf1;//#8edec8;//#EEE;
-	//font-size: 4rem;
 	padding-top:30px;	
 }
 
@@ -1231,7 +1230,7 @@ h4{
 #pic1{
 	background: white url(Background2.jpg);
 	background-size:cover;
-	background-position:50% 25%;
+	background-position:50% 15%;
 	height:170px;
 	width:auto;
 }
@@ -1258,4 +1257,13 @@ h4{
 
 a{
 	color:#1bbd90;
+}
+
+.panel-sid{
+	background: #e8f4f8;
+	padding: 5px;
+	border-style:solid;
+	border-width:1px;
+	border-color: #ddd;
+	width:245px;
 }

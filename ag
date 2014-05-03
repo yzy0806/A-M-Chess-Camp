@@ -1,0 +1,53 @@
++----+------------+-----------+-----------+---------------+--------+--------+
+| id | first_name | last_name | family_id | date_of_birth | rating | active |
++----+------------+-----------+-----------+---------------+--------+--------+
+| 1  | Charlene   | Barrows   | 51        | 2009-05-01    | 398    | true   |
+| 2  | Arden      | Cummings  | 77        | 2008-05-01    | 106    | true   |
+| 3  | Daren      | Rogahn    | 59        | 2005-05-01    | 112    | true   |
+| 4  | Shayna     | Shields   | 19        | 2003-05-01    | 0      | true   |
+| 5  | Tressie    | Reynolds  | 2         | 2008-05-01    | 106    | true   |
+| 6  | Ara        | Hermann   | 4         | 2003-05-01    | 255    | true   |
+| 7  | Adonis     | Wyman     | 79        | 2007-05-01    | 154    | true   |
+| 8  | Michelle   | Little    | 87        | 2007-05-01    | 0      | true   |
+| 9  | Lesly      | Luettgen  | 31        | 2006-05-01    | 0      | true   |
+| 10 | Elouise    | Gottlieb  | 47        | 2004-05-01    | 183    | true   |
+| 11 | Gracie     | Daigle    | 101       | 1998-04-04    | 1235   | true   |
+| 12 | Mary Kate  | Daigle    | 101       | 2000-05-01    | 1101   | true   |
+| 13 | Evan       | Schell    | 102       | 1999-12-03    | 1503   | true   |
+| 14 | Aaron      | Reay      | 103       | 1999-05-01    | 1421   | true   |
+| 15 | Andrew     | Reay      | 103       | 2005-05-01    | 842    | true   |
+| 16 | Ben        | Santilli  | 104       | 2000-05-01    | 994    | true   |
+| 17 | Ryan       | Santilli  | 104       | 2002-05-01    | 839    | true   |
+| 18 | Alex       | Martin    | 105       | 2005-05-01    | 751    | true   |
+| 19 | Teyah      | Wilson    | 106       | 2007-05-01    | 757    | true   |
+| 20 | Lauren     | Gazica    | 107       | 2003-05-01    | 0      | true   |
+| 21 | Josh       | Gazica    | 107       | 2002-05-01    | 379    | true   |
+| 22 | Dean       | Merritt   | 108       | 2004-05-01    | 655    | true   |
+| 23 | Keith      | Merritt   | 108       | 2006-05-01    | 308    | true   |
+| 24 | Joylin     | Maclin    | 111       | 2002-05-01    | 1384   | true   |
+| 25 | Hannah     | Hanson    | 112       | 2003-05-01    | 994    | true   |
+| 26 | Sydney     | Hanson    | 112       | 2000-05-01    | 891    | false  |
+| 27 | Ted        | Gruberman | 113       | 2004-05-02    | 100    | true   |
+| 28 | Zach       | Skirpan   | 114       | 2004-05-02    | 1010   | true   |
+| 29 | Max        | Skirpan   | 114       | 2007-05-02    | 535    | true   |
+| 30 | Sean       | Regan     | 115       | 2001-05-02    | 1252   | true   |
+| 31 | Kelsey     | Regan     | 115       | 2003-05-02    | 964    | true   |
+| 32 | Peter      | Regan     | 115       | 2005-05-02    | 842    | true   |
+| 33 | Gracie     | Daigle    | 116       | 1998-04-04    | 1235   | true   |
+| 34 | Mary Kate  | Daigle    | 116       | 2000-05-02    | 1101   | true   |
+| 35 | Evan       | Schell    | 117       | 1999-12-03    | 1503   | true   |
+| 36 | Aaron      | Reay      | 118       | 1999-05-02    | 1421   | true   |
+| 37 | Andrew     | Reay      | 118       | 2005-05-02    | 842    | true   |
+| 38 | Ben        | Santilli  | 119       | 2000-05-02    | 994    | true   |
+| 39 | Ryan       | Santilli  | 119       | 2002-05-02    | 839    | true   |
+| 40 | Alex       | Martin    | 120       | 2005-05-02    | 751    | true   |
+| 41 | Teyah      | Wilson    | 121       | 2007-05-02    | 757    | true   |
+| 42 | Lauren     | Gazica    | 122       | 2003-05-02    | 0      | true   |
+| 43 | Josh       | Gazica    | 122       | 2002-05-02    | 379    | true   |
+| 44 | Dean       | Merritt   | 123       | 2004-05-02    | 655    | true   |
+| 45 | Keith      | Merritt   | 123       | 2006-05-02    | 308    | true   |
+| 46 | Joylin     | Maclin    | 126       | 2002-05-02    | 1384   | true   |
+| 47 | Hannah     | Hanson    | 127       | 2003-05-02    | 994    | true   |
+| 48 | Sydney     | Hanson    | 127       | 2000-05-02    | 891    | false  |
++----+------------+-----------+-----------+---------------+--------+--------+
+48 rows in set

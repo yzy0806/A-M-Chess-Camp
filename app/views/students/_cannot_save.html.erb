@@ -1,0 +1,12 @@
+<%  if @student.errors.any? %>
+<div data-alert data-options="animation_speed:500, animation:'fadeOut';" class="alert-box warning radius">
+    <a href="#" class="close">&times;</a>
+<h3><%= pluralize(@student.errors.count, "error")%> prohibited this student from being saved:</h3>
+      <ul>
+      <% @student.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+</div>
+<% end %>
+
