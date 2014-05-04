@@ -14,7 +14,7 @@ class RegistrationsController < ApplicationController
 
   # GET /registrations/new
   def new
-    @registration = Registration.new
+    @registration = Registration.new 
   end
 
   # GET /registrations/1/edit
@@ -28,7 +28,7 @@ class RegistrationsController < ApplicationController
       if @registration.save
         redirect_to @registration.camp, notice:"The registration was created successfully"
       else
-        render 'registrations/new'
+        redirect_to root_url, notice:"The registration failed."
       end
     
   end
@@ -36,25 +36,19 @@ class RegistrationsController < ApplicationController
   # PATCH/PUT /registrations/1
   # PATCH/PUT /registrations/1.json
   def update
-    respond_to do |format|
-      if @registration.update(registration_params)
-        format.html { redirect_to @registration, notice: 'Camp instructor was successfully updated.' }
-        format.json { head :no_content }
+    if @registration.update(registration_params)
+        redirect_to @registration.camp, notice:"The registration was created successfully"
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @registration.errors, status: :unprocessable_entity }
+        redirect_to root_url, notice:"The registration failed."
       end
-    end
   end
 
   # DELETE /registrations/1
   # DELETE /registrations/1.json
   def destroy
+    camp=@registration.camp
     @registration.destroy
-    respond_to do |format|
-      format.html { redirect_to registrations_url }
-      format.json { head :no_content }
-    end
+    redirect_to camp_path(camp), notice: "Registration is removed from system"
   end
 
   private

@@ -3,8 +3,10 @@
     <%= f.input :phone, as: :string %>
     <%= f.input :email %>
     <%= f.input :bio, input_html: { rows: 6 } %>
+    <% if logged_in? && current_user.role == "admin" %>
     <%= f.input :active %>
-        <div class="field">
+    <%end%>
+       <div class="field">
       <%= f.label :picture %><br />
       <%= f.file_field :picture %>
     </div>

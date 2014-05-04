@@ -24,6 +24,10 @@
       <th>Student Name</th>
       <th>Rating</th>
       <th>Age</th>
+      <% if logged_in? && current_user.role == "admin" %>
+      <th>Edit</th>
+      <th>Destroy</th>
+      <% end %>
     </tr>
   </thead>
 
@@ -37,11 +41,20 @@
         <%end%>
         <td><%= reg.student.rating==0 ? "Unrated" : reg.student.rating%></td>
         <td><%= reg.student.age%></td>
+        <td><%= reg.payment_status%></td>
+        <% if logged_in? && current_user.role == "admin" %>
+        <td><%= link_to(edit_registration_path(reg), :camp_id=>@camp.id, class: 'button tiny radius') do%>Edit</td>
+        <% end %>
+        <td><%= link_to(registration_path(reg), method: 'delete', data: { confirm: "Are you sure you want to destroy this registration?" }, class: 'button tiny radius alert') do %>
+            &nbsp;Destroy</td>
+            <%end%>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
+<div id="dialog" title="Add Registration">
+<%= render 'registrations/new', :camp_id=>@camp.id%>
+</div>
 
-
-
-
+<button id="opener">Add Registration</button>

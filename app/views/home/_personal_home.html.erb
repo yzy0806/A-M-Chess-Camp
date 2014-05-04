@@ -1,19 +1,82 @@
 <div id ="pic1">
   <div class="row">
-   <div class ="small-7 colums">
+   <div class ="small-7 columns">
     <h1>Welcome back, <%= current_user.instructor.first_name%></h1>
+    </div>
+    <div class ="small-1 columns ends">
+    </br>
+      </br>
+      <%=link_to image_tag('logout.png'), logout_path,id:"logout"%>
     </div>
   </div>
 </div>
-<%= render :partial => "partials/flash" %>
+<div>
+  <%= render :partial => "partials/flash" %>
+</div>
 
-<p><%= image_tag 'AlexPlaying10.jpg', class: "left", width: "150" %> The A &amp; M 
-  Chess Camps are the finest chess camps in the United States (<em>we concede 
-  Russia can do better, but not much better</em>) and guaranteed to 
-  <strong>transform your son or daughter into a tiger at the chess board</strong>.  
-  The links below will tell you more about our camps, curriculums and 
-  instructors and in the future will actually allow you to register your son 
-  or daughter for those camps. [<%= link_to "O Happy Day!", "https://www.youtube.com/watch?v=a37bBm8pXSk" %>]
-</p>
+</br>
+<div class="row">
+  <div class="small-12 columns"></div>
+</div>
+ 
+<div class="row">
+  <div class ="small-2 columns">
+  </br>
+    <% if current_user.instructor.picture_url.nil? %>
+    <%= image_tag 'picture_placeholder.jpg' %>
+    <%else %>
+    <%= image_tag current_user.instructor.picture_url %>
+    <%end%>
+    </br>
+  </br>
+    <p>
+      <strong>Phone:</strong> 
+    </br>
+        <%= number_to_phone(current_user.instructor.phone) %>
+    </p>
+    <p>
+      <strong>Email:&nbsp;</strong> 
+        <%= mail_to current_user.instructor.email, current_user.instructor.email, encode: "javascript" %>
+    </p>
 
-<p>If you are an administrator (don't lie), <%= link_to "click here to review camps.", camps_path %></p>
+    <p>
+      <strong>Biography</strong><br />
+        <%= current_user.instructor.bio.nil? ? "N/A" : @instructor.bio %>
+      </p>
+    <%= link_to 'Edit Profile ', edit_instructor_path(current_user.instructor),class:"button expand"%> 
+  </div>
+  <div class ="small-1 columns">
+    &nbsp;
+  </div>
+  <div class ="small-9 columns">
+    <h3>My Camps</h3>
+      <table>
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Time Slot</th>
+        <th>Student Number</th>
+        <th>Location</th>
+        <th>Average Rating</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% current_user.instructor.camps.each do |camp| %>
+        <tr>
+          <td><%= link_to camp.name,camp_path(camp) %></td>
+          <td><%= camp.start_date.strftime('%m/%d/%y') %></td>
+          <td><%= camp.end_date.strftime('%m/%d/%y') %></td>
+          <td><%= camp.time_slot=="am" ? "Morning" : "Afternoon" %></td>
+          <td><%= camp.registrations.count %></td>
+          <td><%= link_to camp.location.name, location_path(camp.location) %></td>
+          <td><%= (camp.students.map { |e| e.rating }.reduce(:+).to_f / camp.registrations.count).round(2)%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
+</div>
+

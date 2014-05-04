@@ -1226,12 +1226,19 @@ h4{
 	font-family: 'Lato', sans-serif;
 	color: #d1eaf1;
 }
+h3{
+	font-family: 'Lato', sans-serif;
+}
+
+h5{
+	font-family: 'Lato', sans-serif;
+}
 
 #pic1{
 	background: white url(Background2.jpg);
 	background-size:cover;
 	background-position:50% 15%;
-	height:170px;
+	height:180px;
 	width:auto;
 }
 
@@ -1266,4 +1273,9 @@ a{
 	border-width:1px;
 	border-color: #ddd;
 	width:245px;
+}
+
+#logout{
+	height:90%;
+	width:90%;
 }

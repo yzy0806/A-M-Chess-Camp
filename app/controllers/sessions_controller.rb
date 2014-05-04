@@ -8,8 +8,9 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to root_url, notice: "You are logged into the chess camp system"
     else
-      flash.now.alert = "Username or password is invalid"
-      render "new"
+      redirect_to root_url, alert:"Username or password is invalid"
+      
+      
     end
   end
   

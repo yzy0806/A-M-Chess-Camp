@@ -1,3 +1,4 @@
+
 <%  if @registration.errors.any? %>
 <div data-alert data-options="animation_speed:500, animation:'fadeOut';" class="alert-box warning radius">
     <a href="#" class="close">&times;</a>
@@ -10,13 +11,14 @@
 </div>
 <% end %>
 
-
+<% if @registration.camp_id.nil?%>
+ <%@registration.camp_id=temp_id %>
+ <%end%>
 <%= simple_form_for @registration, :html => { :class => 'form-horizontal' } do |f| %>
+  <strong><%=@registration.camp.name%></strong> <strong>(<%=@registration.camp.start_date%>)</strong>
   <fieldset>
-    
-		<%= f.input :camp_id, :collection => Camp.active.alphabetical, :include_blank => true ,:selected => temp_id%>
-		<%= f.input :student_id, :collection => Student.active.alphabetical, :include_blank => true %>
-    	<%= f.input :payment_status %>
+      <%= f.input :student_id, :collection => Student.below_rating(@registration.camp.curriculum.max_rating).at_or_above_rating(@registration.camp.curriculum.min_rating).active.alphabetical, :include_blank => true %>
+    	<%= f.input :payment_status,:collection=>%w[deposit full] %>
     	<%= f.input :points_earned %>
 
     <div class="form-actions">

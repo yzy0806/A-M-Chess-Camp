@@ -21,9 +21,9 @@
   </div>
 <% end %>
 
-<div id="dialog" title="Edit Camps">
+<div id="dialog" title="Add Camp">
       <%= simple_form_for(@instructor, html: { class: 'form-horizontal' }) do |f| %>
-        <%= f.input :camp_ids, label: "", collection: Camp.active.alphabetical,  as: :check_boxes %>
+        <%= f.input :camp_ids, label: "", collection: Camp.active.alphabetical,  as: :check_boxes%>
         <%= f.submit nil, class: 'button radius' %>
       <% end %> 
   </div>
