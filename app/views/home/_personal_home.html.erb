@@ -20,7 +20,7 @@
 </div>
  
 <div class="row">
-  <div class ="small-2 columns">
+  <div class ="small-3 columns">
   </br>
     <% if current_user.instructor.picture_url.nil? %>
     <%= image_tag 'picture_placeholder.jpg' %>
@@ -41,13 +41,11 @@
 
     <p>
       <strong>Biography</strong><br />
-        <%= current_user.instructor.bio.nil? ? "N/A" : @instructor.bio %>
+        <%= current_user.instructor.bio.nil? ? "N/A" : current_user.instructor.bio %>
       </p>
     <%= link_to 'Edit Profile ', edit_instructor_path(current_user.instructor),class:"button expand"%> 
   </div>
-  <div class ="small-1 columns">
-    &nbsp;
-  </div>
+
   <div class ="small-9 columns">
     <h3>My Camps</h3>
       <table>

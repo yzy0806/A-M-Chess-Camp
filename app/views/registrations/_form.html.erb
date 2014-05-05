@@ -1,23 +1,10 @@
-
-<%  if @registration.errors.any? %>
-<div data-alert data-options="animation_speed:500, animation:'fadeOut';" class="alert-box warning radius">
-    <a href="#" class="close">&times;</a>
-<h3><%= pluralize(@registration.errors.count, "error")%> prohibited this registration from being saved:</h3>
-      <ul>
-      <% @registration.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-</div>
-<% end %>
-
 <% if @registration.camp_id.nil?%>
- <%@registration.camp_id=temp_id %>
  <%end%>
 <%= simple_form_for @registration, :html => { :class => 'form-horizontal' } do |f| %>
-  <strong><%=@registration.camp.name%></strong> <strong>(<%=@registration.camp.start_date%>)</strong>
   <fieldset>
+      <%= f.input :camp_id, :collection => Camp.upcoming.active.alphabetical, :include_blank => true %>
       <%= f.input :student_id, :collection => Student.below_rating(@registration.camp.curriculum.max_rating).at_or_above_rating(@registration.camp.curriculum.min_rating).active.alphabetical, :include_blank => true %>
+      <%# f.input :student_id, :collection=>Student.active.alphabetical, :include_blank=>true %>
     	<%= f.input :payment_status,:collection=>%w[deposit full] %>
     	<%= f.input :points_earned %>
 

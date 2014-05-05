@@ -16,16 +16,20 @@
       <p>&nbsp;</p>
       <%= render partial: "#{secondary}" %>
     <% end %>
-
-    <%= link_to(eval("new_#{model_name}_path"), class: "button radius") do %>
+<%if logged_in? && current_user.role == "admin"%>
+   <%= link_to(eval("new_#{model_name}_path"), class: "button radius") do %>
   <i class="fa fa-plus"></i>
   &nbsp;Add a New <%= model_name.capitalize %>
 <% end %>
-    
+
+    <%end%>
   </div>
   <div class="small-4 columns">
     <!-- render the sidebar, if it exists -->
     <%= render partial: "#{sidebar}" unless sidebar.blank? %>
   </div>
 </div>
+
+
+
 

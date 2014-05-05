@@ -1,6 +1,6 @@
 class RegistrationsController < ApplicationController
   before_action :set_registration, only: [:show, :edit, :update, :destroy]
-
+  authorize_resource
   # GET /registrations
   # GET /registrations.json
   def index
@@ -15,6 +15,7 @@ class RegistrationsController < ApplicationController
   # GET /registrations/new
   def new
     @registration = Registration.new 
+    @registration.camp_id = params[:id] unless params[:id].nil?
   end
 
   # GET /registrations/1/edit
@@ -28,7 +29,7 @@ class RegistrationsController < ApplicationController
       if @registration.save
         redirect_to @registration.camp, notice:"The registration was created successfully"
       else
-        redirect_to root_url, notice:"The registration failed."
+        render action: 'new'
       end
     
   end
@@ -39,7 +40,7 @@ class RegistrationsController < ApplicationController
     if @registration.update(registration_params)
         redirect_to @registration.camp, notice:"The registration was created successfully"
       else
-        redirect_to root_url, notice:"The registration failed."
+        render action: 'edit'
       end
   end
 
@@ -47,8 +48,9 @@ class RegistrationsController < ApplicationController
   # DELETE /registrations/1.json
   def destroy
     camp=@registration.camp
-    @registration.destroy
-    redirect_to camp_path(camp), notice: "Registration is removed from system"
+    if @registration.destroy
+      redirect_to camp_path(camp), notice: "Registration is removed from system"
+    end
   end
 
   private

@@ -5,10 +5,15 @@
         </li>
       </ul>
       <section class="top-bar-section">
+
         <ul class="right">
+          <% if logged_in? && current_user.role == "admin" %>
+          <li class="active"><%=link_to "Families", families_path%></li>
+          <li class="active"><%=link_to "Students", students_path%></li>
+          <% end %>
           <li class="active"><%=link_to "Camps", camps_path%></li>
           <li class="active"><%=link_to "Instructors", instructors_path%></li>
           <li class="active"><%=link_to "Curriculum", curriculums_path%></li>
-          <li class="active"><%=link_to "location", locations_path%></li>
+          <li class="active"><%=link_to "Locations", locations_path%></li>
       </section>
 </nav>

@@ -1,0 +1,11 @@
+<%  if @registration.errors.any? %>
+<div data-alert data-options="animation_speed:500, animation:'fadeOut';" class="alert-box warning radius">
+    <a href="#" class="close">&times;</a>
+<h3><%= pluralize(@registration.errors.count, "error")%> prohibited this camp from being saved:</h3>
+      <ul>
+      <% @registration.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+</div>
+<% end %>
