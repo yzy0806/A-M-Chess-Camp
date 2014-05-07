@@ -16,10 +16,6 @@
 
 </br>
 <div class="row">
-  <div class="small-12 columns"></div>
-</div>
- 
-<div class="row">
   <div class ="small-3 columns">
   </br>
     <% if current_user.instructor.picture_url.nil? %>
@@ -47,6 +43,8 @@
   </div>
 
   <div class ="small-9 columns">
+  <div class="row">
+    <div class ="small-12 columns">
     <h3>My Camps</h3>
       <table>
       <thead>
@@ -55,7 +53,7 @@
         <th>Start Date</th>
         <th>End Date</th>
         <th>Time Slot</th>
-        <th>Student Number</th>
+        <th>Camp Size</th>
         <th>Location</th>
         <th>Average Rating</th>
       </tr>
@@ -75,6 +73,52 @@
       <% end %>
     </tbody>
   </table>
-  </div>
+</div>
 </div>
 
+<div class="row">
+<div class="small-7 columns">
+   <h3>Instructor Assignments</h3>
+    <table>
+      <thead>
+        <th>Instructor</th>
+        <th>Camps Assigned</th>
+      </thead>
+      <tbody>
+        <% Instructor.active.alphabetical.each do |ins| %>
+        <tr>
+          <td><%=ins.name%></td>
+          <td><% ins.camps.upcoming.active.alphabetical.each do |camp| %>
+            <li>
+            <%=link_to camp.name, camp_path(camp) %>
+            (<%=camp.start_date.strftime('%m/%d/%y')%>)
+            <li>
+            <%end%>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+</div>
+  <div class="small-5 columns">
+    <h3>Camp Registrations</h3>
+    <table>
+      <thead>
+          <th>Camp</th>
+          <th>Paid</th>
+          <th>Deposit</th>
+      </thead>
+      <tbody>
+        <% Camp.active.upcoming.chronological.each do |camp| %>
+        <tr>
+          <td><%=link_to camp.name, camp_path(camp)%> 
+          </br>(<%=camp.start_date.strftime('%m/%d/%y')%>)</td>
+          <td><%=camp.registrations.paid.count%></td>
+          <td><%=camp.registrations.deposit_only.count%></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>

@@ -42,7 +42,6 @@
         <td><%= reg.student.rating==0 ? "Unrated" : reg.student.rating%></td>
         <td><%= reg.student.age%></td>
         <% if logged_in? && current_user.role == "admin" %>
-          <td><%= reg.payment_status%></td>
           <td><%= link_to(edit_registration_path(reg), :camp_id=>@camp.id, class: 'button tiny radius') do%>Edit</td>
         <% end %>
         <td><%= link_to(registration_path(reg), method: 'delete', data: { confirm: "Are you sure you want to destroy this registration?" }, class: 'button tiny radius alert') do %>
@@ -53,4 +52,11 @@
     <% end %>
   </tbody>
 </table>
+<div class="row">
+  <div class="small-8 columns">
+    &nbsp;
+  </div>
+  <div class="small-4 columns">
  <%= link_to 'Add registration ', new_registration_path(:id => @camp.id),class:"button tiny radius primary"%> 
+</div>
+</div>

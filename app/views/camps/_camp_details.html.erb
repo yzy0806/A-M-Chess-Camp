@@ -31,4 +31,21 @@
   <%= @camp.active ? "Yes" : "No" %>
 </p>
 
-  
+<div id="dialog" title="Financial Report">
+  <ul class="pricing-table">
+    <li class="title">Payment Received</li>
+    <%@camp.registrations.paid.each do |reg| %>
+    <li class="bullet-item"><%=reg.student.name%></li>
+    <%end%>
+    <li class="price">Subtotal $<%=@camp.registrations.paid.count*@camp.cost%></li>
+    <li class="title">Payment Due</li>
+    <%@camp.registrations.deposit_only.each do |reg| %>
+    <li class="bullet-item"><%=reg.student.name%></li>
+    <%end%>
+    <li class="price">Subtotal $<%=@camp.registrations.deposit_only.count*@camp.cost%></li>
+    <p>-------------------------------------------------</p>
+     <li class="price">Total $<%=@camp.registrations.count*@camp.cost%></li>
+</ul>
+</div>
+ 
+<button id="opener">Financial Report</button>
