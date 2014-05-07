@@ -19,7 +19,7 @@ class Location < ActiveRecord::Base
 
   # callbacks
   before_destroy :verify_that_never_used_for_camps
-  #before_validation :get_location_coordinates
+  before_validation :get_location_coordinates
 
   def create_map_link(zoom=14,width=400,height=400)
     markers = "&markers=color:red%7Ccolor:red%7Clabel:A%7C#{self.latitude},#{self.longitude}"
