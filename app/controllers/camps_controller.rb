@@ -38,8 +38,11 @@ class CampsController < ApplicationController
   end
 
   def destroy
-    @camp.destroy
+    if @camp.destroy
     redirect_to camps_url, notice: "#{@camp.name} camp on #{@camp.start_date.strftime('%m/%d/%y')} was removed from the system."
+    else
+    redirect_to camps_url, alert: "#{@camp.name} camp on #{@camp.start_date.strftime('%m/%d/%y')} cannot be removed from the system."
+    end
   end
 
   private

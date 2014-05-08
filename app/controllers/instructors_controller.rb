@@ -46,7 +46,7 @@ class InstructorsController < ApplicationController
 
   def destroy
     @instructor.destroy
-    redirect_to instructors_url, notice: "#{@instructor.proper_name} was removed from the system."
+    redirect_to instructors_url, alert: "#{@instructor.proper_name} cannot be removed from the system."
   end
 
   private

@@ -37,7 +37,7 @@ class StudentsController < ApplicationController
 
   def destroy
     @student.destroy
-    redirect_to students_url, notice: "#{@student.proper_name} was removed from the system."
+    redirect_to students_url, alert: "#{@student.proper_name} cannot be removed from the system."
   end
 
   private

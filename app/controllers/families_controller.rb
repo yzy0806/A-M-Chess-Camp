@@ -38,7 +38,7 @@ class FamiliesController < ApplicationController
 
   def destroy
     @family.destroy
-    redirect_to families_url, notice: "#{@family.family_name} family was removed from the system."
+    redirect_to families_url, alert: "#{@family.family_name} family cannot be removed from the system."
   end
 
   private

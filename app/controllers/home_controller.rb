@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
   def index
+  	@instructors=Instructor.active.alphabetical
+  	@camps=Camp.active.upcoming.chronological
   end
 
   def about

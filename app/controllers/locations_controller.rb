@@ -37,8 +37,11 @@ class LocationsController < ApplicationController
   end
 
   def destroy
-    @location.destroy
-    redirect_to locations_url, notice: "#{@location.name} location was removed from the system."
+    if @location.destroy
+      redirect_to locations_url, notice: "#{@location.name} location was removed from the system."
+    else
+      redirect_to locations_url, alert: "#{@location.name} location cannot be removed from the system."
+    end
   end
 
   private

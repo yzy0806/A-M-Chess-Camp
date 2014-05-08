@@ -87,7 +87,7 @@
         <th>Camps Assigned</th>
       </thead>
       <tbody>
-        <% Instructor.active.alphabetical.each do |ins| %>
+        <% @instructors.each do |ins| %>
         <tr>
           <td><%=ins.name%></td>
           <td><% ins.camps.upcoming.active.alphabetical.each do |camp| %>
@@ -111,7 +111,7 @@
           <th>Deposit</th>
       </thead>
       <tbody>
-        <% Camp.active.upcoming.chronological.each do |camp| %>
+        <% @camps.each do |camp| %>
         <tr>
           <td><%=link_to camp.name, camp_path(camp)%> 
           </br>(<%=camp.start_date.strftime('%m/%d/%y')%>)</td>
