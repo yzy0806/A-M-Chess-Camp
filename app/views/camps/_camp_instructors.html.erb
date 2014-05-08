@@ -16,6 +16,7 @@
 </div>
 
 </br>
+<% unless @camp.registrations.empty? %>
 
 <h5>Registrations (<%=@regs.count%>)</h5>
 <table>
@@ -52,6 +53,8 @@
     <% end %>
   </tbody>
 </table>
+<% if logged_in? && current_user.role == "admin" %>
+
 <div class="row">
   <div class="small-8 columns">
     &nbsp;
@@ -60,3 +63,5 @@
  <%= link_to 'Add registration ', new_registration_path(:id => @camp.id),class:"button tiny radius primary"%> 
 </div>
 </div>
+<%end%>
+<%end%>

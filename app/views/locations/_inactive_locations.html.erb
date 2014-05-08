@@ -1,3 +1,5 @@
+<% if logged_in?%>
+
 <% unless @inactive_locations.empty? %>
   <h3>&nbsp;</h3>
   <div class="panel clearfix">
@@ -9,3 +11,4 @@
     </ul>
   </div>
 <% end %>
+<%end%>

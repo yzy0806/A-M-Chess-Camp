@@ -7,7 +7,9 @@
       <th>Address</th>
       <th>City</th>
       <th>Capacity</th>
+      <% if logged_in? && current_user.role == "admin" %>
       <th></th>
+      <%end%>
     </tr>
   </thead>
 
@@ -18,7 +20,9 @@
     <td><%= location.street_1 %></td>
     <td><%= location.city %></td>
     <td><%= location.max_capacity %></td>
+    <% if logged_in? && current_user.role == "admin" %>
     <td><%= link_to 'Edit', edit_location_path(location) %></td>
+    <%end%>
   </tr>
     <% end %>
   </tbody>

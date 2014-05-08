@@ -18,11 +18,13 @@
 <strong>Maximum Capacity:&nbsp;&nbsp;</strong> 
   <%=@location.max_capacity %>
 </p>
+<% if logged_in? && current_user.role == "admin" %>
+
 <p>
 <strong>Active?&nbsp;&nbsp;</strong>
   <%= @location.active ? "Yes" : "No" %>
 </p>
-
+<%end%>
 <p>
 	<strong>Map</strong>
 </br>

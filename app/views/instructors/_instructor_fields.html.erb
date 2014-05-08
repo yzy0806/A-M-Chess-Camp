@@ -6,7 +6,7 @@
     <% if logged_in? && current_user.role == "admin" %>
     <%= f.input :active %>
     <%end%>
-       <div class="field">
-      <%= f.label :picture %><br />
-      <%= f.file_field :picture %>
+    <div class="field">
+    <%= f.label :picture %><br/>
+    <%= f.file_field :picture %>
     </div>

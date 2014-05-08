@@ -4,7 +4,7 @@
 </p>
  <% unless @instructor.picture_url.nil? %>
       <p><%= image_tag @instructor.picture_url %></p>
-      <% end %>
+ <% end %>
 <p>
 <strong>Phone:&nbsp;&nbsp;</strong> 
   <%= number_to_phone(@instructor.phone) %>
@@ -22,6 +22,8 @@
   <%= @instructor.bio.nil? ? "N/A" : @instructor.bio %>
 </p>
 
+<% if logged_in? && current_user.role == "admin" %>
+
 <p>
 <strong>Role &nbsp;&nbsp;</strong>
   <%= @instructor.user.nil? ? "instructor" : @instructor.user.role%>
@@ -33,3 +35,5 @@
   <%= @instructor.user.username%>
  <% end %>
 <p>
+
+<%end%>

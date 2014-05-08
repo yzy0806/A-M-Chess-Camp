@@ -12,9 +12,11 @@
 <strong>Ratings Range:&nbsp;&nbsp;</strong> 
   <%= @curriculum.min_rating.zero? ? "Unrated" : @curriculum.min_rating %> - <%= @curriculum.max_rating %>
 </p>
+<% if logged_in? %>
 <p>
 <strong>Active?&nbsp;&nbsp;</strong>
   <%= @curriculum.active ? "Yes" : "No" %>
 </p>
+<%end%>
 
 

@@ -6,7 +6,9 @@
     <th width="200">Name</th>
     <th width="200">Phone</th>
     <th width="100">Camps</th>
+    <% if logged_in? && current_user.role == "admin" %>
     <th></th>
+    <%end%>
   </tr>
   </thead>
 <tbody>
@@ -15,7 +17,9 @@
     <td><%= link_to instructor.name, instructor_path(instructor) %></td>
     <td><%= number_to_phone instructor.phone %></td>
     <td><%= instructor.camps.size %></td>
+    <% if logged_in? && current_user.role == "admin" %>
     <td><%= link_to 'Edit', edit_instructor_path(instructor)%></td>
+    <%end%>
   </tr>
 <% end %>
 </tbody>

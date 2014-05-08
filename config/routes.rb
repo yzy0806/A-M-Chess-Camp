@@ -16,6 +16,7 @@ ChessCamp::Application.routes.draw do
   get 'home/about', to: 'home#about', as: :about
   get 'home/contact', to: 'home#contact', as: :contact
   get 'home/privacy', to: 'home#privacy', as: :privacy
+  get 'home/financial', to: 'home#financial', as: :financial
 
 
   get 'user/edit' => 'users#edit', as: :edit_current_user

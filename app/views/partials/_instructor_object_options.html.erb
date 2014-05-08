@@ -6,7 +6,7 @@
     &nbsp;Display All <%= model_name.pluralize.capitalize %>
   <% end %>
   &nbsp;&nbsp;
-  <% if logged_in? && current_user.role == "admin" %>
+  <% if logged_in? %>
 
   <%= link_to(eval("edit_#{model_name}_path(object)"), class: 'button radius') do %>
     <i class="fa fa-pencil"></i>

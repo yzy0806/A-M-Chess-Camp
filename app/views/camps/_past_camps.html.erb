@@ -1,3 +1,5 @@
+<% if logged_in?%>
+
 <% unless @inactive_camps.empty? %>
 <h3>Past Camps</h3>
 <table>
@@ -27,4 +29,5 @@
 <span class="paginate">
 <%= will_paginate @past_camps, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
 </span>
+<%end%>
 <%end%>

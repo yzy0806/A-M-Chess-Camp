@@ -38,7 +38,7 @@
 // We use these to control various global styles
 // $body-bg: #fff;
 // $body-font-color: #222;
-// $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+ $body-font-family: 'Lato', sans-serif;
 // $body-font-weight: normal;
 // $body-font-style: normal;
 
@@ -806,7 +806,7 @@
 // $price-money-align: center;
 // $price-money-color: #333;
 // $price-money-weight: normal;
-// $price-money-size: rem-calc(32);
+ $price-money-size: rem-calc(16);
 // $price-money-font-family: $body-font-family;
 
 
@@ -1226,6 +1226,11 @@ h4{
 	font-family: 'Lato', sans-serif;
 	color: #d1eaf1;
 }
+
+h2{
+	font-family: 'Lato', sans-serif;
+}
+
 h3{
 	font-family: 'Lato', sans-serif;
 }
