@@ -12,5 +12,9 @@ class HomeController < ApplicationController
 
   def privacy
   end
+
+  def financial
+    @camps=Camp.alphabetical.select { |e| e.start_date>Date.new(2014,1,1) && e.start_date<=Date.new(2014,12,31) }
+  end
   
 end

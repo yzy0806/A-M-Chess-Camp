@@ -18,7 +18,7 @@
     </thead>
 
     <tbody>
-      <% Camp.alphabetical.each do |camp| %>
+      <% @camps.each do |camp| %>
         <tr>
           <td><%= link_to camp.name,camp_path(camp) %> (<%= camp.start_date.strftime('%m/%d/%y') %>)</td>
           <td><%= camp.registrations.paid.count*camp.cost + camp.registrations.deposit_only.count* 50%></td>
@@ -29,9 +29,9 @@
   </table>
 </div>
 <div class ="small-4 columns">
-  <h3>Total Payment Received: $<%=Camp.alphabetical.map { |e| e.registrations.paid.count*e.cost }.sum + Camp.alphabetical.map { |e| e.registrations.deposit_only.count*50 }.sum%></h3> 
-  <h3 style="color:red;">Total Payment Due: $<%=Camp.alphabetical.map { |e| e.registrations.deposit_only.count*e.cost }.sum-Camp.alphabetical.map { |e| e.registrations.deposit_only.count*50 }.sum%></h3>
+  <h3>Total Payment Received: $<%=@camps.map { |e| e.registrations.paid.count*e.cost }.sum + @camps.map { |e| e.registrations.deposit_only.count*50 }.sum%></h3> 
+  <h3 style="color:red;">Total Payment Due: $<%=@camps.map { |e| e.registrations.deposit_only.count*e.cost }.sum-@camps.map { |e| e.registrations.deposit_only.count*50 }.sum%></h3>
   <p>-------------------------------------------------------</p>
-  <h2>Total: $<%=Camp.alphabetical.map { |e| e.registrations.count*e.cost}.sum%></h2>
+  <h2>Total: $<%=@camps.map { |e| e.registrations.count*e.cost}.sum%></h2>
 </div>
 </div>

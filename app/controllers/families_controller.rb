@@ -8,6 +8,9 @@ class FamiliesController < ApplicationController
   end
 
   def show
+    @paid_regs=@family.registrations.paid.select { |e| e.camp.start_date>Date.new(2014,1,1) && e.camp.start_date<=Date.new(2014,12,31) }
+    @deposit_regs=@family.registrations.deposit_only.select { |f| f.camp.start_date>Date.new(2014,1,1) && f.camp.start_date<=Date.new(2014,12,31) }
+    @regs=@family.registrations.select { |f| f.camp.start_date>Date.new(2014,1,1) && f.camp.start_date<=Date.new(2014,12,31) }
   end
 
   def new

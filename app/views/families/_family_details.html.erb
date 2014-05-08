@@ -23,17 +23,17 @@
 <div id="dialog" title="Financial Report">
   <ul class="pricing-table">
     <li class="title">Amount Paid</li>
-    <%@family.registrations.paid.each do |reg| %>
+    <%@paid_regs.each do |reg| %>
     <li class="bullet-item"><%=reg.student.name%></br><%=reg.camp.name%> ($<%=reg.camp.cost%>)</li>
     <%end%>
-    <li class="price">Subtotal $<%=@family.registrations.paid.map { |e| e.camp.cost }.sum+ @family.registrations.deposit_only.count*50%></li>
+    <li class="price">Subtotal $<%=@paid_regs.map { |e| e.camp.cost }.sum+ @deposit_regs.count*50%></li>
     <li class="title">Amount Due</li>
-    <%@family.registrations.deposit_only.each do |reg| %>
+    <%@deposit_regs.each do |reg| %>
     <li class="bullet-item"><%=reg.student.name%></br><%=reg.camp.name%> ($<%=reg.camp.cost%>)</li>
     <%end%>
-    <li class="price">Subtotal $<%=@family.registrations.deposit_only.map { |e| e.camp.cost }.sum-@family.registrations.deposit_only.count*50%></li>
+    <li class="price">Subtotal $<%=@deposit_regs.map { |e| e.camp.cost }.sum-@deposit_regs.count*50%></li>
     <p>-------------------------------------------------</p>
-     <li class="price">Total $<%=@family.registrations.map { |e| e.camp.cost }.sum%></li>
+     <li class="price">Total $<%=@regs.map { |e| e.camp.cost }.sum%></li>
 </ul>
 </div>
  
