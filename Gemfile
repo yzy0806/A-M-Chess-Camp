@@ -90,4 +90,5 @@ gem 'nested_form','0.3.2'
 
 group :production do
       gem 'pg'
+      gem 'rails_12factor'
     end
