@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.3'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+#gem 'sqlite3'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -63,6 +63,7 @@ group :development do
   gem 'wirble'
   gem 'hirb'
   gem 'faker'
+  gem 'sqlite3'
 end
 
 # Gems used only in testing
@@ -78,6 +79,7 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'capybara'
+  gem 'sqlite3'
 end
 
 gem 'font-awesome-sass-rails', '3.0.2.2'
@@ -86,3 +88,6 @@ gem 'cancancan', '1.7.0'
 gem 'time_date_helpers', '0.0.2'
 gem 'nested_form','0.3.2'
 
+group :production do
+      gem 'pg'
+    end
