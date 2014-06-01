@@ -79,7 +79,7 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'capybara'
-  gem 'sqlite3'
+  #gem 'sqlite3'
 end
 
 gem 'font-awesome-sass-rails', '3.0.2.2'
